@@ -19,16 +19,17 @@ import {
   Pie,
   Financial,
   ColorPicker,
-  ColorMapping,
   Editor,
 } from './pages';
+
+import { useStateContext } from './contexts/ContextProvider';
 
 import './App.css';
 
 const App = () => {
+  const { activeMenu } = useStateContext();
   //declare activeMenu to true
-  const activeMenu = true;
-
+ 
   return (
     <div>
       <BrowserRouter>
@@ -67,8 +68,8 @@ const App = () => {
           <div>
             <Routes>
               {/* Dashboard */}
-              <Route path='/' element='ECommerce' />
-              <Route path='/ecommerce' element='ECommerce' />
+              <Route path='/' element={<Ecommerce />} />
+              <Route path='/ecommerce' element={<Ecommerce />} />
 
               {/* Pages */}
               <Route path='/orders' element={<Orders />} />
